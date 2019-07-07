@@ -90,11 +90,11 @@ public class Lista<tipo> {
 	/* ######################### Metodos de Remocao ######################### */
 	public tipo removeInicio() {
 		if(tamanho == 0) {
-			System.out.println("Nao ha elementos!");
+			System.out.println("Nao ha estados!");
 			return null;
 		}
 
-		tipo valor = header.getProximo().getElemento();
+		tipo valor = header.getProximo().getEstado();
 		header.setProximo(header.getProximo().getProximo());
 		
 		header.getProximo().getAnterior().setAnterior(null);
@@ -118,7 +118,7 @@ public class Lista<tipo> {
 			aux = aux.getProximo();
 		
 		
-		tipo valor = aux.getProximo().getElemento();
+		tipo valor = aux.getProximo().getEstado();
 		aux.setProximo(aux.getProximo().getProximo());
 		
 		aux.getProximo().getAnterior().setAnterior(null);
@@ -132,11 +132,11 @@ public class Lista<tipo> {
 	
 	public tipo removeFim() {
 		if(tamanho == 0) {
-			System.out.println("Nao ha elementos!");
+			System.out.println("Nao ha estados!");
 			return null;
 		}
 		
-		tipo valor = trailer.getAnterior().getElemento();
+		tipo valor = trailer.getAnterior().getEstado();
 		trailer.setAnterior(trailer.getAnterior().getAnterior());
 		
 		trailer.getAnterior().getProximo().setAnterior(null);
@@ -157,8 +157,8 @@ public class Lista<tipo> {
 			No<tipo> aux = header.getProximo();
 			
 			System.out.print("Lista: ");
-			while(aux.getElemento() != null) {
-				System.out.print(aux.getElemento() + "\t");
+			while(aux.getEstado() != null) {
+				System.out.print(aux.getEstado() + "\t");
 				aux = aux.getProximo();
 			}
 			
@@ -189,14 +189,14 @@ public class Lista<tipo> {
 		inserePosicao(novoNo, pos + 1);
 	}
 
-	public tipo removeElemento(tipo elemento) {
+	public tipo removeEstado(tipo estado) {
 		int pos = 0;
 		boolean naoExiste = true;
 		No<tipo> aux = header;
 		
 		for(int k = 0; k < tamanho; k++) {
 			aux = aux.getProximo();
-			if(aux.getElemento() == elemento) {
+			if(aux.getEstado() == estado) {
 				naoExiste = false;
 				pos = k;
 				break;
@@ -204,7 +204,7 @@ public class Lista<tipo> {
 		}
 		
 		if(naoExiste) {
-			System.out.println("N�o existe esse elemento");
+			System.out.println("N�o existe esse estado");
 			return null;
 		}
 		
@@ -215,14 +215,14 @@ public class Lista<tipo> {
 		if(tamanho == 0)
 			return null;
 		
-		return header.getProximo().getElemento();
+		return header.getProximo().getEstado();
 	}
 	
 	public tipo last() {
 		if(tamanho == 0)
 			return null;
 		
-		return trailer.getAnterior() .getElemento();
+		return trailer.getAnterior() .getEstado();
 	}
 	
 	public tipo anterior(int pos) {
@@ -233,7 +233,7 @@ public class Lista<tipo> {
 		for(int k = 0; k < pos; k++)
 			aux = aux.getProximo();
 		
-		return aux.getElemento();
+		return aux.getEstado();
 	}
 	
 	public tipo posterior(int pos) {
@@ -244,19 +244,19 @@ public class Lista<tipo> {
 		for(int k = 0; k < pos + 2; k++)
 			aux = aux.getProximo();
 		
-		return aux.getElemento();
+		return aux.getEstado();
 	}
 	
 	
 	// ############################## MÉTODOS COMPLEMENTARES ##############################
-		public int index(tipo elemento) {
+		public int index(tipo estado) {
 			int pos = 0;
 			boolean naoExiste = true;
 			No<tipo> aux = header;
 			
 			for(int k = 0; k < tamanho; k++) {
 				aux = aux.getProximo();
-				if(aux.getElemento() == elemento) {
+				if(aux.getEstado() == estado) {
 					naoExiste = false;
 					pos = k;
 					break;
@@ -264,29 +264,29 @@ public class Lista<tipo> {
 			}
 			
 			if(naoExiste) {
-				System.out.println("N�o existe esse elemento");
+				System.out.println("N�o existe esse estado");
 				return -1;
 			}
 			
 			return pos;
 		}
 		
-		public tipo getElemento(int pos) {
+		public tipo getEstado(int pos) {
 			No<tipo> aux = header;
 			
 			for(int k = -1; k < pos; k++)
 				aux = aux.getProximo();
 			
-			return aux.getElemento();
+			return aux.getEstado();
 		}
 		
-		public void setElemento(tipo elemento, int pos) {
+		public void setEstado(tipo estado, int pos) {
 			No<tipo> aux = header;
 			
 			for(int k = -1; k < pos; k++)
 				aux = aux.getProximo();
 			
-			aux.setElemento(elemento);
+			aux.setEstado(estado);
 		}
 		
 }

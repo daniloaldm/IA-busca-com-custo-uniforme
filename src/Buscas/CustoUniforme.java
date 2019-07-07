@@ -25,7 +25,7 @@ public class CustoUniforme implements Busca{
 		}
 
 		No<Problema> node = borda.removeInicio();
-		Problema no = node.getElemento();
+		Problema no = node.getEstado();
 
 		if (mostre)
 			no.mostrar();
@@ -54,10 +54,10 @@ public class CustoUniforme implements Busca{
 		No<Problema> node = nodeFinal;
 
 		if (node != null) {
-			System.out.println("Custo total: " + node.getElemento().getCusto());
+			System.out.println("Custo total: " + node.getEstado().getCusto());
 
 			while (node != null) {
-				resposta.add(node.getElemento());
+				resposta.add(node.getEstado());
 				node = node.getPai();
 			}
 

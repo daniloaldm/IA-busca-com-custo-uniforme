@@ -4,8 +4,8 @@ public class Arvore<tipo> {
 
 	No<tipo> raiz = new No<tipo>(null, null, 0);
 
-	public Arvore(tipo elemento) {
-		raiz.setElemento(elemento);
+	public Arvore(tipo estado) {
+		raiz.setEstado(estado);
 	}
 
 	public No<tipo> inserirNo(tipo elemento, No<tipo> pai) {
@@ -16,6 +16,6 @@ public class Arvore<tipo> {
 	}
 
 	public tipo getRaiz() {
-		return raiz.getElemento();
+		return raiz.getEstado();
 	}
 }

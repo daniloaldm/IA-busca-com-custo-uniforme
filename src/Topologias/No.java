@@ -4,26 +4,26 @@ import java.util.ArrayList;
 
 public class No<tipo> {
 
-	private tipo elemento;
-
-	// Atributos Pilha, Fila e Lista
+	private tipo estado;
+	//================================================================================================================================
+	// Atributos
 	private No<tipo> proximo;
 	private No<tipo> anterior;
 	private int custo = 0;
 
-	// Construtor Pilha e Fila
-	public No(tipo elemento, No<tipo> proximo) {
-		this.elemento = elemento;
+	// Construtores
+	public No(tipo estado, No<tipo> proximo) {
+		this.estado = estado;
 		this.proximo = proximo;
 	}
 
-	public No(tipo elemento, No<tipo> anterior, No<tipo> proximo) {
-		this.elemento = elemento;
+	public No(tipo estado, No<tipo> anterior, No<tipo> proximo) {
+		this.estado = estado;
 		this.anterior = anterior;
 		this.proximo = proximo;
 	}
 
-	// M�todos
+	// Métodos get e set
 	public No<tipo> getProximo() {
 		return proximo;
 	}
@@ -48,17 +48,18 @@ public class No<tipo> {
 		this.custo = custo;
 	}
 
+	//================================================================================================================================
 	// Atributos Arvore
 	private No<tipo> pai = null;
 	private ArrayList<No<tipo>> filhos = new ArrayList<No<tipo>>();
 
 	// Construtor Arvore
-	public No(tipo elemento, No<tipo> noPai, int modelo) {
-		this.elemento = elemento;
+	public No(tipo estado, No<tipo> noPai, int modelo) {
+		this.estado = estado;
 		this.pai = noPai;
 	}
 
-	// M�todos
+	//Métodos get e set e auxiliares
 	public No<tipo> getPai() {
 		return this.pai;
 	}
@@ -75,11 +76,11 @@ public class No<tipo> {
 		return this.filhos.get(pos);
 	}
 
-	public tipo getElemento() {
-		return elemento;
+	public tipo getEstado() {
+		return estado;
 	}
 
-	public void setElemento(tipo elemento) {
-		this.elemento = elemento;
+	public void setEstado(tipo estado) {
+		this.estado = estado;
 	}
 }
