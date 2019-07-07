@@ -26,7 +26,7 @@ public class Main {
 			int busca = in.nextInt();
 			System.out.println();
 
-			// problemas
+			// Problemas
 			if (problema == 1) {
 				int[] t = { 1, 4, 2,
 							3, 0, 5,
